@@ -18,9 +18,7 @@
     "noFallthroughCasesInSwitch": true,
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
   },
-  "include": ["src"],
-  "paths": {
-    "@/*": ["./src/*"]
-  },
+  "include": ["src", "./vite.config.ts", "./src/global.d.ts"],
+ 
   "references": [{ "path": "./tsconfig.node.json" }]
 }

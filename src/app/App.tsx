@@ -1,5 +1,5 @@
-import { Code } from '@/code';
-import { AnchorUnderline } from '@/anchor-underline';
+import { Code } from '../code';
+import { AnchorUnderline } from '../anchor-underline';
 
 import styles from './styles.module.css';
 
