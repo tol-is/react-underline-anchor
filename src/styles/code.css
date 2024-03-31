@@ -1,0 +1,129 @@
+pre {
+  position: relative;
+  font-family: var(--font-mono);
+  --pre-size: 13px;
+  --foreground: var(--hiContrast);
+  --background: var(--neutral-12);
+  --comment: var(--loContrast);
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  position: relative;
+  background-color: var(--background) !important;
+  color: var(--foreground);
+  font-size: var(--pre-size);
+  font-weight: 400;
+  text-shadow: none;
+  font-family: var(--font-mono);
+  text-align: left;
+  white-space: pre-wrap;
+  display: block;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background: var(--background);
+}
+
+/* Inline code */
+:not(pre) > code {
+  font-size: 1.06em;
+  white-space: normal;
+  color: var(--foreground);
+  background: var(--background);
+  text-shadow: none;
+  font-weight: 400;
+}
+
+.token {
+  color: #4bf3c8;
+}
+
+.token.maybe-class-name {
+  color: #00daef;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.language-css .token {
+  color: #4bf3c8;
+}
+
+.token.selector {
+  color: #4bf3c8;
+}
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+  color: #7e7e7e;
+}
+
+.token.punctuation {
+  color: #7b6995;
+}
+
+.token.builtin,
+.token.constant,
+.token.class-name {
+  color: #ffe261;
+}
+
+.token.boolean,
+.token.number {
+  color: #b381c5;
+}
+
+.token.important,
+.token.atrule,
+.token.property,
+.token.keyword {
+  color: #40b4c4;
+}
+
+.token.doctype,
+.token.operator,
+.token.inserted,
+.token.tag,
+.token.class-name,
+.token.symbol {
+  color: #00daef;
+}
+
+.token.attr-name,
+.token.function,
+.token.deleted,
+.token.selector {
+  color: #4bf3c8;
+}
+
+.token.attr-value,
+.token.regex,
+.token.char,
+.token.string {
+  color: #b4dce7;
+}
+
+.token.entity,
+.token.url,
+.token.variable,
+.token.script {
+  color: var(--foreground);
+}

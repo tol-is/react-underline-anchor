@@ -1,0 +1,103 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol,
+form,
+figure,
+blockquote,
+dl,
+pre,
+dd {
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: LLMedium, sans-serif;
+}
+
+img,
+picture,
+video {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  appearance: none;
+  font: inherit;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+[inert] {
+  pointer-events: none;
+  cursor: default;
+}
+
+[inert],
+[inert] * {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

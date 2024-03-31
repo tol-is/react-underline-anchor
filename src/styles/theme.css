@@ -1,0 +1,84 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --neutral-1: hsl(0, 0%, 6%);
+    --neutral-2: hsl(0, 0%, 10%);
+    --neutral-3: hsl(0, 0%, 13%);
+    --neutral-4: hsl(0, 0%, 16%);
+    --neutral-5: hsl(0, 0%, 18%);
+    --neutral-6: hsl(0, 0%, 21%);
+    --neutral-7: hsl(0, 0%, 26%);
+    --neutral-8: hsl(0, 0%, 31%);
+    --neutral-9: hsl(0, 0%, 44%);
+    --neutral-10: hsl(0, 0%, 68%);
+    --neutral-11: hsl(0, 0%, 83%);
+    --neutral-12: hsl(0, 0%, 93%);
+    --accent: #0025ff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --neutral-1: hsl(0, 0%, 94%);
+    --neutral-2: hsl(0, 0%, 90%);
+    --neutral-3: hsl(0, 0%, 87%);
+    --neutral-4: hsl(0, 0%, 84%);
+    --neutral-5: hsl(0, 0%, 82%);
+    --neutral-6: hsl(0, 0%, 79%);
+    --neutral-7: hsl(0, 0%, 74%);
+    --neutral-8: hsl(0, 0%, 69%);
+    --neutral-9: hsl(0, 0%, 56%);
+    --neutral-10: hsl(0, 0%, 32%);
+    --neutral-11: hsl(0, 0%, 17%);
+    --neutral-12: hsl(0, 0%, 7%);
+    --accent: #0076ff;
+  }
+}
+
+
+
+:root {
+  --hiContrast: var(--neutral-1);
+  --loContrast: var(--neutral-8);
+  --surface: var(--neutral-12);
+
+  --gutter: calc(3vmax);
+  --max-width: 1200px;
+
+  --space-xl: calc(7rem + 5vmax);
+  --space-lg: calc(5rem + 4vmax);
+  --space-md: calc(3rem + 3vmax);
+  --space-sm: calc(0.5rem + 1vmax);
+  --space-xs: 0.35rem;
+  
+  --font-sans: 'Inter', 'system-ui';
+  --font-mono: 'JetBrains Mono Variable', monospace;
+  --font-size-root: 16px;
+  --line-height-root: 1.7;
+}
+
+html,
+body {
+  font-family: var(--font-sans);
+  color: var(--t-neutral--1000);
+  font-size: var(--font-size-root);
+  line-height: var(--line-height-root);
+  background-color: var(--surface);
+  color: var(--loContrast);
+}
+
+a {
+  color: var(--hiContrast);
+}
+a:visited {
+  color: var(--hiContrast);
+}
+
+
+*:focus {
+  outline: none;
+}
+
+::selection {
+  background-color: var(--neutral-10);
+  color: var(--neutral-2);
+}

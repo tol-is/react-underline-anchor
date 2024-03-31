@@ -1,0 +1,44 @@
+.anchor_text {
+  --underline-ease-in: cubic-bezier(0.25, 1, 0.5, 1);
+  --underline-ease-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --underline-position-y: 100%;
+  --underline-duration: calc(var(--underline-time) * var(--underline-speed) * 1s);
+  --underline-size: 1px;
+  --underline-color: currentColor;
+
+  display: inline;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(var(--underline-color), var(--underline-color));
+  background-size: 0% var(--underline-size);
+
+  &[data-state='in'],
+  &:active {
+    background-position: 0% var(--underline-position-y);
+    animation: in var(--underline-duration) var(--underline-ease-in);
+    background-size: 100% var(--underline-size);
+  }
+
+  &[data-state='out'] {
+    background-position: 100% var(--underline-position-y);
+    animation: out var(--underline-duration) var(--underline-ease-out);
+  }
+}
+
+@keyframes in {
+  0% {
+    background-size: 0% var(--underline-size);
+  }
+  100% {
+    background-position: 0% var(--underline-position-y);
+    background-size: 100% var(--underline-size);
+  }
+}
+@keyframes out {
+  0% {
+    background-size: 100% var(--underline-size);
+  }
+  100% {
+    background-size: 0% var(--underline-size);
+  }
+}
