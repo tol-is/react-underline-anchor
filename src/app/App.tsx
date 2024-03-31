@@ -30,8 +30,8 @@ export const App = () => {
         use-case.{' '}
         <AnchorUnderline href="#">
           Its implemented using background-image, so both the underline and transition, will work
-          beautifully, with single-line, or multi-line text, anchors within long format paragraphs,
-          or standalone navigation links.{' '}
+          beautifully, with single-line, or multi-line text, for anchors within long format
+          paragraphs, or standalone navigation links. Is that long enough now?{' '}
         </AnchorUnderline>{' '}
         Internally the component, is{' '}
         <AnchorUnderline href="#">
