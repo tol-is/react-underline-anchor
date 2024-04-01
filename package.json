@@ -13,6 +13,7 @@
     "@fontsource-variable/jetbrains-mono": "^5.0.20",
     "@radix-ui/react-icons": "^1.3.0",
     "@react-spring/web": "9.7.3",
+    "@vercel/analytics": "^1.2.2",
     "inter-ui": "^4.0.2",
     "jsx": "link:react-syntax-highlighter/dist/esm/languages/prism/jsx",
     "react": "18.2.0",
