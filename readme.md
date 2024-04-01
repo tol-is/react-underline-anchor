@@ -1,4 +1,4 @@
-# Ove-rengineered animated underline anchor
+# Over-engineered animated underline transition
 
 https://react-underline-anchor.vercel.app/
 
