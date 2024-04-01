@@ -12,7 +12,7 @@ export type AnchorUnderlineProps = React.ComponentPropsWithoutRef<'a'> & {
 };
 
 export const AnchorUnderline = (props: AnchorUnderlineProps) => {
-  const { speed = 0.5, href, children, className, ...rest } = props;
+  const { speed = 0.5, href, className, ...rest } = props;
 
   const timeout = useRef<ReturnType<typeof setTimeout>>();
   const duration = useRef(0.8);
@@ -21,7 +21,7 @@ export const AnchorUnderline = (props: AnchorUnderlineProps) => {
   const elRef = useRef<HTMLAnchorElement>(null!);
 
   const animateIn = () => {
-    getComputedStyle();
+    getComputedParams();
     transition.current = 'in';
     elRef.current.dataset.state = 'in';
 
@@ -60,12 +60,13 @@ export const AnchorUnderline = (props: AnchorUnderlineProps) => {
     animateOut();
   };
 
-  const getComputedStyle = () => {
+  const getComputedParams = () => {
     const elContent = elRef.current.textContent;
     const elLength = elContent?.length ?? 1;
     const animTime = Math.min(Math.max(0.4, elLength / (speed * 100)), 1.4);
     duration.current = animTime * speed;
     elRef.current.style.setProperty('--underline-time', `${animTime}`);
+
     if (speed) elRef.current.style.setProperty('--underline-speed', `${speed}`);
   };
 
@@ -85,8 +86,6 @@ export const AnchorUnderline = (props: AnchorUnderlineProps) => {
       onBlur={handleMouseLeave}
       href={href}
       {...rest}
-    >
-      {children}
-    </a>
+    />
   );
 };

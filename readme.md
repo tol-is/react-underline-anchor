@@ -1,5 +1,42 @@
 # Ove-rengineered animated underline anchor
 
-The underline color, weight, position and pace can be configured using custom CSS properties, and can be fine-tuned, for every custom use-case. Its implemented using background-image, so both the underline and transition, will work beautifully, with single-line, or multi-line text, anchors within long format paragraphs, or standalone navigation links. Internally the component, is using the length of the text contents, to compute the animation duration, so the underline transition of longer text would take longer and shorter text would animate faster, to ensure that the animation feels reasonably consistent across different text lengths.
-
 https://react-underline-anchor.vercel.app/
+
+An over-engineered recipe of an animated underline transition.
+
+`<AnchorUnderline speed={0.6} />`
+
+
+Internally the component, is measuring the length of its text contents, to compute the animation duration, so the transition feels consistent across applications, within paragraphs, or standalone navigation links.
+
+Renders staggered entry and exit underline transitions and implements an abstract speed prop, that configures the relative velocity. Using CSS custom properies you can further customize the underline color, size , position, duration, and transition curve.
+
+
+### Using css
+```
+.custom_link {
+  --underline-ease-in: ease-out;
+  --underline-ease-out: ease-in-out;
+  --underline-position-y: 88%;
+  --underline-duration: 3px;
+  --underline-size: 1px;
+  --underline-color: currentColor;
+}
+
+<AnchorUnderline className="custom_link"/>
+```
+
+### Inline CSS Props
+```
+<AnchorUnderline
+style={{
+  '--underline-ease-in': 'ease-out',
+  '--underline-ease-out': 'ease-in-out',
+  '--underline-position-y': '88%',
+  '--underline-duration': '3px',
+  '--underline-size': '1px',
+  '--underline-color': 'currentColor',
+  } as React.CSSProperties}
+/>
+```
+

@@ -5,43 +5,77 @@ import styles from './styles.module.css';
 
 const nav = ['React', 'Typescript', 'HTML', 'CSS', 'Animation', 'Underline', 'Navigation'];
 
-const code = `
-.custom_link {
-  --underline-position-y: 62%;
-  --underline-duration: 0.3s;
-  --underline-size: 2px;
-}
-<AnchorUnderline className="custom_link"/>
-`;
+const code = `<AnchorUnderline speed={0.5} />`;
 
 export const App = () => {
   return (
     <main className={styles.main}>
+      <p>An over-engineered recipe of an animated underline transition.</p>
+      <Code code={code} language="js" />
+      <p>
+        Renders staggered entry and exit underline transitions and implements an{' '}
+        <AnchorUnderline href="#">abstract speed</AnchorUnderline> prop, that configures the
+        relative velocity of the transition. Using CSS custom properies you can further customize
+        the underline{' '}
+        <AnchorUnderline
+          href="#"
+          style={
+            { '--underline-color': '#00ffcc', '--underline-size': '2px' } as React.CSSProperties
+          }
+        >
+          color
+        </AnchorUnderline>
+        ,{' '}
+        <AnchorUnderline href="#" style={{ '--underline-size': '100%' } as React.CSSProperties}>
+          size
+        </AnchorUnderline>{' '}
+        ,{' '}
+        <AnchorUnderline
+          href="#"
+          style={{ '--underline-position-y': '60%' } as React.CSSProperties}
+        >
+          position
+        </AnchorUnderline>
+        ,{' '}
+        <AnchorUnderline
+          href="#"
+          style={
+            {
+              '--underline-duration': '3s',
+            } as React.CSSProperties
+          }
+        >
+          duration
+        </AnchorUnderline>
+        , and{' '}
+        <AnchorUnderline
+          href="#"
+          style={
+            {
+              '--underline-ease-in': 'cubic-bezier(0.16, 1, 0.3, 1)',
+              '--underline-ease-out': 'cubic-bezier(0.87, 0, 0.13, 1)',
+            } as React.CSSProperties
+          }
+        >
+          transition curve
+        </AnchorUnderline>
+        .
+      </p>
+
+      <p>
+        Internally the component, is{' '}
+        <AnchorUnderline href="#">
+          measuring the length of its text contents, to compute the animation duration,
+        </AnchorUnderline>{' '}
+        so the transition feels{' '}
+        <AnchorUnderline href="#">consistent across applications</AnchorUnderline>, within
+        paragraphs, or standalone navigation links.
+      </p>
       <p>
         <AnchorUnderline href="https://github.com/tol-is/react-underline-anchor">
           https://github.com/tol-is/react-underline-anchor
         </AnchorUnderline>
       </p>
-      <p>A wonderfully over-engineered recipe of an animated underline anchor.</p>
-
-      <p>
-        The <AnchorUnderline href="#">underline</AnchorUnderline> color, weight, position and pace
-        can be configured using custom CSS properties, and can be fine-tuned, for every custom
-        use-case.{' '}
-        <AnchorUnderline href="#">
-          Its implemented using background-image, so both the underline and transition, will work
-          beautifully, with single-line, or multi-line text, for anchors within long format
-          paragraphs, or standalone navigation links. Is that long enough now?{' '}
-        </AnchorUnderline>{' '}
-        Internally the component, is{' '}
-        <AnchorUnderline href="#">
-          using the length of the text contents, to compute the animation duration,
-        </AnchorUnderline>{' '}
-        so the underline transition of longer text would take longer and shorter text would animate
-        faster, to ensure that the animation feels reasonably{' '}
-        <AnchorUnderline href="#">consistent across different text lengths</AnchorUnderline>.
-      </p>
-
       <ul className={styles.nav_list}>
         {nav.map((item, index) => (
           <li key={index}>
@@ -49,8 +83,6 @@ export const App = () => {
           </li>
         ))}
       </ul>
-
-      <Code code={code} language="js" />
     </main>
   );
 };

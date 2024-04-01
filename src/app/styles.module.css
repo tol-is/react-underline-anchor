@@ -13,7 +13,7 @@
 
   p {
     max-width: 65ch;
-  }
+  } 
 
   & a,
   & a:visited {
@@ -22,16 +22,8 @@
 }
 
 .nav_list {
-  
-
   a {
     padding: 5px 0;
     --underline-position-y: 80%;
   }
-}
-
-.custom_link {
-  --underline-position-y: 60%;
-  --underline-duration: 0.3s;
-  --underline-size: 2px;
 }
