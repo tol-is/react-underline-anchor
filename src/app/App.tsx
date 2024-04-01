@@ -65,7 +65,8 @@ export const App = () => {
       <p>
         Internally the component, is{' '}
         <AnchorUnderline href="#">
-          measuring the length of its text contents, to compute the animation duration,
+          measuring the length of its text contents, and dynamically computes the animation
+          duration,
         </AnchorUnderline>{' '}
         so the transition feels{' '}
         <AnchorUnderline href="#">consistent across applications</AnchorUnderline>, within
