@@ -8,12 +8,14 @@ export type AnchorUnderlineProps = React.ComponentPropsWithoutRef<'a'> & {
    *
    * @defaultValue 0.5
    */
-  speed?: number;
+  speed?: false | null | undefined | number;
 };
 
 export const AnchorUnderline = (props: AnchorUnderlineProps) => {
   const { speed = 0.5, href, className, ...rest } = props;
 
+  const invalidated = useRef(true);
+  const raf = useRef<ReturnType<typeof requestAnimationFrame>>();
   const timeout = useRef<ReturnType<typeof setTimeout>>();
   const duration = useRef(0.8);
   const transition = useRef('idle');
@@ -22,17 +24,20 @@ export const AnchorUnderline = (props: AnchorUnderlineProps) => {
 
   const animateIn = () => {
     getComputedParams();
-    transition.current = 'in';
-    elRef.current.dataset.state = 'in';
 
-    clearTimeout(timeout.current);
-    timeout.current = setTimeout(() => {
-      transition.current = 'idle';
+    cancelAnimationFrame(raf.current!);
+    raf.current = requestAnimationFrame(() => {
+      transition.current = 'in';
+      elRef.current.dataset.state = 'in';
 
-      if (underline.current !== true) {
-        animateOut();
-      }
-    }, duration.current * 600);
+      clearTimeout(timeout.current);
+      timeout.current = setTimeout(() => {
+        transition.current = 'idle';
+        if (underline.current !== true) {
+          animateOut();
+        }
+      }, duration.current * 1000 * 0.65);
+    });
   };
 
   const animateOut = () => {
@@ -45,7 +50,7 @@ export const AnchorUnderline = (props: AnchorUnderlineProps) => {
       if (underline.current === true) {
         animateIn();
       }
-    }, duration.current * 1000);
+    }, duration.current * 1000 * 0.9);
   };
 
   const handleMouseEnter = () => {
@@ -61,18 +66,26 @@ export const AnchorUnderline = (props: AnchorUnderlineProps) => {
   };
 
   const getComputedParams = () => {
-    const elContent = elRef.current.textContent;
-    const elLength = elContent?.length ?? 1;
-    const animTime = Math.min(Math.max(0.4, elLength / (speed * 100)), 1.4);
-    duration.current = animTime * speed;
-    elRef.current.style.setProperty('--underline-time', `${animTime}`);
+    if (invalidated.current === false) return;
 
-    if (speed) elRef.current.style.setProperty('--underline-speed', `${speed}`);
+    if (speed === false || speed === null || typeof speed === 'undefined') {
+      const elStyle = window.getComputedStyle(elRef.current);
+      const appliedDuration = parseFloat(elStyle.getPropertyValue('--underline-duration'));
+      duration.current = appliedDuration;
+    } else {
+      const elContent = elRef.current.textContent;
+      const elLength = elContent?.length ?? 1;
+      const animTime = Math.min(Math.max(0.4, elLength / (speed * 100)), 1.4);
+      const appliedDuration = animTime * speed;
+      elRef.current.style.setProperty('--underline-duration', `${appliedDuration}s`);
+      duration.current = appliedDuration;
+    }
   };
 
   useLayoutEffect(() => {
     return () => {
       clearTimeout(timeout.current);
+      cancelAnimationFrame(raf.current!);
     };
   }, []);
 

@@ -2,7 +2,6 @@
   --underline-ease-in: cubic-bezier(0.25, 1, 0.5, 1);
   --underline-ease-out: cubic-bezier(0.76, 0, 0.24, 1);
   --underline-position-y: 100%;
-  --underline-duration: calc(var(--underline-time) * var(--underline-speed) * 1s);
   --underline-size: 1px;
   --underline-color: currentColor;
 

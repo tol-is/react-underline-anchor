@@ -11,7 +11,14 @@ export const App = () => {
   return (
     <main className={styles.main}>
       <p>An over-engineered recipe of an animated underline transition.</p>
-      <Code code={code} language="js" />
+      <p>
+        <Code code={code} language="js" />
+      </p>
+      <p>
+        <AnchorUnderline href="https://github.com/tol-is/react-underline-anchor">
+          https://github.com/tol-is/react-underline-anchor
+        </AnchorUnderline>
+      </p>
       <p>
         Renders staggered entry and exit underline transitions and implements an{' '}
         <AnchorUnderline href="#">abstract speed</AnchorUnderline> prop, that configures the
@@ -39,6 +46,7 @@ export const App = () => {
         ,{' '}
         <AnchorUnderline
           href="#"
+          speed={false}
           style={
             {
               '--underline-duration': '3s',
@@ -72,11 +80,7 @@ export const App = () => {
         <AnchorUnderline href="#">consistent across applications</AnchorUnderline>, within
         paragraphs, or standalone navigation links.
       </p>
-      <p>
-        <AnchorUnderline href="https://github.com/tol-is/react-underline-anchor">
-          https://github.com/tol-is/react-underline-anchor
-        </AnchorUnderline>
-      </p>
+
       <ul className={styles.nav_list}>
         {nav.map((item, index) => (
           <li key={index}>
